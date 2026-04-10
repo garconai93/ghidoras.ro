@@ -1,74 +1,126 @@
-# GhiDoRo - Ghid Bucuresti
+# 🏛️ GhiDoRo
 
-Ghidul tau complet pentru cele mai frumoase locuri din capitala Romaniei.
+**Ghidul tău complet pentru București** — descoperă cele mai frumoase locuri din capitala României, de la restaurante istorice la muzee emblematice și skybar-uri cu vedere panoramică.
 
-## Despre Proiect
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222?style=flat&logo=github&logoColor=white)
 
-GhiDoRo este un ghid interactiv pentru Bucuresti, prezentand restaurante, baruri, hoteluri, muzee si atractii turistice. Site-ul dispune de un carusel cu imagini de inalta calitate, filtrare pe categorii si carduri cu detalii despre fiecare locatie.
+**Live:** [https://garconai93.github.io/ghidoras.ro/](https://garconai93.github.io/ghidoras.ro/)
 
-**Tehnologii:** HTML5, CSS3, JavaScript vanilla
+---
 
-**Design:** Interfata moderna cu efecte glassmorphism, gradient smooth si animatii CSS
+## ✨ Features
 
-## Categorii
+- **Hero Carousel** — 5 imagini spectaculoase din București, auto-play la 4 secunde
+- **5 categorii:** EAT, DRINK, STAY, VISIT, MUST SEE
+- **Filtrare interactiva** — click pe o categorie pentru a filtra locatiile
+- **15 locatii** — 3 per categorie, cu rating, descriere si pozele din Unsplash
+- **Glassmorphism design** — efecte blur, glow si transparente
+- **Mobile-friendly** — responsive pe toate dispozitivele
+- **Dark mode** — design modern, prietenos cu ochii
 
-### EAT - Restaurante
+---
 
-| Locatie | Descriere | Foto | Google Maps |
-|---------|-----------|------|-------------|
-| Caru' cu Bere | Legendarul restaurant bucurestean din 1879, cu arhitectura neo-romaneasca si preparate traditionale autentice. | [Foto](https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4380,26.0972) |
-| Luca Epicericul | Bistro francez elegant in centrul vechi, cu meniu rafinat si vinoteca impresionanta. | [Foto](https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4359,26.1024) |
-| Micul Bucatar | Restaurant traditional romanesc cu preparate din toate regiunile tari, intr-un ambient cozy. | [Foto](https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4365,26.0990) |
+## 🎛️ Functionalitati
 
-### DRINK - Baruri si Cluburi
+### Carousel
+- Auto-play la fiecare 4 secunde
+- Indicatori dot interactivi (click pentru navigare manuala)
+- Fade transition smooth intre slide-uri
 
-| Locatie | Descriere | Foto | Google Maps |
-|---------|-----------|------|-------------|
-| The Spring | Cocktail bar award-winning in cladire istorica, cu mixologi creativi si atmosfera sofisticata. | [Foto](https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4395,26.0975) |
-| Nomad Skybar | Skybar cu vedere panoramica asupra Bucurestiului, perfect pentru apusuri memorabile. | [Foto](https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4475,26.0850) |
-| Control Club | Legendara locatie pentru muzica live si evenimente, simbol al scenei alternative bucurestene. | [Foto](https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4340,26.1030) |
+### Filtru Categorii
+- **Click** — afiseaza doar locatiile din categoria selectata
+- **Double-click** — reseteaza si afiseaza toate locatiile
 
-### STAY - Hoteluri si Pensiuni
+### Carduri Locatii
+- Hover effect cu lift si glow cyan
+- Rating cu stele
+- Poza, categorie, titlu, rating si descriere
+- **Link Google Maps** pentru fiecare locatie — click pe card si deschide locatia in Google Maps
 
-| Locatie | Descriere | Foto | Google Maps |
-|---------|-----------|------|-------------|
-| Hotel Chopin | Boutique hotel elegant intr-o cladire de epoca, cu camere luxoase si servicii premium. | [Foto](https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4410,26.0960) |
-| The Ark | Hotel de design in zona Herastraul, cu arhitectura moderna si gradina verde linistitoare. | [Foto](https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4650,26.0750) |
-| Villa Heliapart | Pensiune intima in cartierul Cotroceni, cu atmosfera familiala si gradina secreta. | [Foto](https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4350,26.0550) |
+---
 
-### VISIT - Muzee si Locatii Culturale
+## 🛠️ Tech Stack
 
-| Locatie | Descriere | Foto | Google Maps |
-|---------|-----------|------|-------------|
-| Muzeul National de Arta | Colectii de arta medievala si moderna romaneasca, in fosta resedinta regala. | [Foto](https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4405,26.0960) |
-| Muzeul National al Satului | Sate traditionale din toate regiunile Romaniei, cu arhitectura autentica si ateliere mestesugaresti. | [Foto](https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4735,26.0780) |
-| Muzeul National de Istorie | Tezaurul Coroanei Romane si artefacte istorice de la daci pana in prezent. | [Foto](https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4310,26.0860) |
+| Tehnologie | Detalii |
+|------------|---------|
+| **HTML5** | Semantic, single-page structure |
+| **CSS3** | Custom properties, glassmorphism, responsive |
+| **JavaScript** | Vanilla ES6, no frameworks |
+| **Fonts** | Google Fonts — Inter |
+| **Images** | Unsplash (royalty-free) |
+| **Maps** | Google Maps (link-uri directe) |
+| **Hosting** | GitHub Pages |
 
-### MUST SEE - Atractii Obligatorii
+---
 
-| Locatie | Descriere | Foto | Google Maps |
-|---------|-----------|------|-------------|
-| Ateneul Roman | Simbolul cultural al Bucurestiului, cu sala de concert in forma de corn si cupola murala spectaculoasa. | [Foto](https://images.unsplash.com/photo-1549877452-9c387954fbc2?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4418,26.0974) |
-| Palatul Parlamentului | A doua cladire administrativa ca marime din lume, monument al epocii comuniste. | [Foto](https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4275,26.0875) |
-| Centrul Vechi - Lipscani | Inima vibranta a orasului cu stradute istorice, terase, cluburi si arhitectura Belle Epoque. | [Foto](https://images.unsplash.com/photo-1583067834263-3ef23b1a6d4f?w=600&q=80) | [Harta](https://www.google.com/maps/search/44.4355,26.1020) |
+## 📁 Project Structure
 
-## Imagini Carusel
+```
+ghidoras.ro/
+├── index.html     # Totul intr-un singur fisier — HTML + CSS + JS
+├── trigger.txt    # (trigger info, nefolosit in productie)
+└── README.md      # Documentatia proiectului
+```
 
-Site-ul include un carusel cu imagini reprezentative pentru Bucuresti:
+**De ce totul intr-un singur fisier?**
+Minimalist si perfect pentru GitHub Pages — fara build step, fara dependente, fara configurare. Upload si gata.
 
-- Romanian Athenaeum - [Foto](https://images.unsplash.com/photo-1549877452-9c387954fbc2?w=1920&q=80)
-- Palace of Parliament - [Foto](https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=1920&q=80)
-- Old Town Lipscani - [Foto](https://images.unsplash.com/photo-1583067834263-3ef23b1a6d4f?w=1920&q=80)
-- Stavropoleos Church - [Foto](https://images.unsplash.com/photo-1548407260-da850faa41e3?w=1920&q=80)
-- Herastraul Park - [Foto](https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1920&q=80)
+---
 
-## Utilizare
+## 🚀 Deployment
 
-1. Deschide `index.html` in browser
-2. Exploreaza caruselul de imagini
-3. Foloseste butoanele de categorii pentru a filtra locatiile
-4. Click dublu pe o categorie pentru a reseta filtrarea
+### GitHub Pages (Recomandat)
 
-## Licenta
+1. **Fork sau cloneaza** repo-ul
+2. **Mergi la** Settings → Pages
+3. **Source:** Selecteaza `main` branch si `/ (root)`
+4. **Save** — site-ul va fi live in ~2 minute
 
-Copyright 2026 GhiDoRo - Descopera Bucuresti
+```bash
+# Cloneaza si modifica
+git clone https://github.com/garconai93/ghidoras.ro.git
+cd ghidoras.ro
+
+# Dupa modificari, commit si push
+git add .
+git commit -m "Update README"
+git push origin main
+```
+
+### Alternativ — Deschide direct
+
+Poți deschide `index.html` direct in browser fara niciun server. Functioneaza 100% offline ( imaginile se incarca din Unsplash cand ai internet).
+
+---
+
+## 🎨 Customizare
+
+### Adauga o categorie noua
+
+1. **Adauga un buton** in `.category-buttons`
+2. **Adauga carduri** cu `data-category="NUME_CATEGORIE"`
+3. **Gata!** JavaScript-ul preia automat noile elemente
+
+### Schimba culorile
+
+Editeaza CSS variables din `<style>`:
+```css
+:root {
+    --accent-cyan: #00f5ff;
+    --accent-purple: #a855f7;
+    --bg-dark: #0a0a0f;
+}
+```
+
+---
+
+## 📜 License
+
+MIT License — foloseste liber pentru proiecte personale sau comerciale.
+
+---
+
+Creat cu 💜 de [Garcon](https://github.com/garconai93)
