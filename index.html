@@ -298,6 +298,12 @@
             border-color: var(--accent-cyan);
         }
 
+        .card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
         .card-image {
             width: 100%;
             height: 220px;
@@ -352,10 +358,6 @@
         .footer p {
             color: var(--text-secondary);
             font-size: 1rem;
-        }
-
-        .footer .heart {
-            color: var(--accent-purple);
         }
 
         /* ============================================
@@ -452,23 +454,23 @@
         <h2 class="section-title">Explorează după categorie</h2>
         <div class="category-buttons">
             <button class="category-btn" data-category="eat">
-                <span class="icon">🍽️</span>
+                <span class="icon">EAT</span>
                 <span class="label">EAT</span>
             </button>
             <button class="category-btn" data-category="drink">
-                <span class="icon">🥂</span>
+                <span class="icon">DRINK</span>
                 <span class="label">DRINK</span>
             </button>
             <button class="category-btn" data-category="stay">
-                <span class="icon">🏨</span>
+                <span class="icon">STAY</span>
                 <span class="label">STAY</span>
             </button>
             <button class="category-btn" data-category="visit">
-                <span class="icon">🏛️</span>
+                <span class="icon">VISIT</span>
                 <span class="label">VISIT</span>
             </button>
             <button class="category-btn" data-category="must-see">
-                <span class="icon">⭐</span>
+                <span class="icon">MUST SEE</span>
                 <span class="label">MUST SEE</span>
             </button>
         </div>
@@ -484,6 +486,7 @@
         <div class="cards-grid" id="cards-container">
             <!-- EAT Cards -->
             <article class="card" data-category="eat">
+                <a href="https://www.google.com/maps/search/?api=1&query=Caru+cu+Bere+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Caru' cu Bere">
                 <div class="card-content">
                     <span class="card-category">Eat</span>
@@ -491,8 +494,10 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Legendarul restaurant bucureștean din 1879, cu arhitectură neo-românească și preparate tradiționale autentice.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="eat">
+                <a href="https://www.google.com/maps/search/?api=1&query=Luca+Epicericul+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80" alt="Luca Epicericul">
                 <div class="card-content">
                     <span class="card-category">Eat</span>
@@ -500,8 +505,10 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Bistro franțuzesc elegant în centrul vechi, cu meniu rafinat și vinotecă impresionantă.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="eat">
+                <a href="https://www.google.com/maps/search/?api=1&query=Micul+Bucatar+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Micul Bucătar">
                 <div class="card-content">
                     <span class="card-category">Eat</span>
@@ -509,10 +516,12 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Restaurant tradițional românesc cu preparate din toate regiunile țării, într-un ambient cozy.</p>
                 </div>
+                </a>
             </article>
 
             <!-- DRINK Cards -->
             <article class="card" data-category="drink">
+                <a href="https://www.google.com/maps/search/?api=1&query=The+Spring+cocktail+bar+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80" alt="The Spring">
                 <div class="card-content">
                     <span class="card-category">Drink</span>
@@ -520,8 +529,10 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Cocktail bar award-winning în clădire istorică, cu mixologi creativi și atmosferă sofisticată.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="drink">
+                <a href="https://www.google.com/maps/search/?api=1&query=Nomad+Skybar+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80" alt="Nomad Skybar">
                 <div class="card-content">
                     <span class="card-category">Drink</span>
@@ -529,8 +540,10 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Skybar cu vedere panoramică asupra Bucureștiului, perfect pentru apusuri memorabile.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="drink">
+                <a href="https://www.google.com/maps/search/?api=1&query=Control+Club+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=600&q=80" alt="Control Club">
                 <div class="card-content">
                     <span class="card-category">Drink</span>
@@ -538,10 +551,12 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Legendara locație pentru muzică live și evenimente, simbol al scenei alternative bucureștene.</p>
                 </div>
+                </a>
             </article>
 
             <!-- STAY Cards -->
             <article class="card" data-category="stay">
+                <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Chopin+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Hotel Chopin">
                 <div class="card-content">
                     <span class="card-category">Stay</span>
@@ -549,8 +564,10 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Boutique hotel elegant într-o clădire de epocă, cu camere luxoase și servicii premium.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="stay">
+                <a href="https://www.google.com/maps/search/?api=1&query=The+Ark+Hotel+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80" alt="The Ark">
                 <div class="card-content">
                     <span class="card-category">Stay</span>
@@ -558,8 +575,10 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Hotel de design în zona Herăstrău, cu arhitectură modernă și grădină verde liniștitoare.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="stay">
+                <a href="https://www.google.com/maps/search/?api=1&query=Villa+Heliapart+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Villa Heliapart">
                 <div class="card-content">
                     <span class="card-category">Stay</span>
@@ -567,10 +586,12 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Pensiune intimă în cartierul Cotroceni, cu atmosferă familială și grădină secretă.</p>
                 </div>
+                </a>
             </article>
 
             <!-- VISIT Cards -->
             <article class="card" data-category="visit">
+                <a href="https://www.google.com/maps/search/?api=1&query=Muzeul+Na%C8%9Bional+de+Art%C4%83+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600&q=80" alt="Muzeul Național de Artă">
                 <div class="card-content">
                     <span class="card-category">Visit</span>
@@ -578,8 +599,10 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Colecții de artă medievală și modernă românească, în fosta reședință regală.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="visit">
+                <a href="https://www.google.com/maps/search/?api=1&query=Muzeul+Na%C8%9Bional+al+Satului+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Muzeul Satului">
                 <div class="card-content">
                     <span class="card-category">Visit</span>
@@ -587,8 +610,10 @@
                     <div class="card-rating">★★★★★</div>
                     <p class="card-description">Sate tradiționale din toate regiunile României, cu arhitectură autentică și ateliere meșteșugărești.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="visit">
+                <a href="https://www.google.com/maps/search/?api=1&query=Muzeul+Na%C8%9Bional+de+Istorie+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80" alt="Muzeul de Istorie">
                 <div class="card-content">
                     <span class="card-category">Visit</span>
@@ -596,10 +621,12 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Tezaurul Coroanei Române și artefacte istorice de la daci până în prezent.</p>
                 </div>
+                </a>
             </article>
 
             <!-- MUST SEE Cards -->
             <article class="card" data-category="must-see">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ateneul+Rom%C3%A2n+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?w=600&q=80" alt="Ateneul Român">
                 <div class="card-content">
                     <span class="card-category">Must See</span>
@@ -607,8 +634,10 @@
                     <div class="card-rating">★★★★★</div>
                     <p class="card-description">Simbolul cultural al Bucureștiului, cu sala deconcert în formă de corn și cupola murală spectaculoasă.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="must-see">
+                <a href="https://www.google.com/maps/search/?api=1&query=Palatul+Parlamentului+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&q=80" alt="Palatul Parlamentului">
                 <div class="card-content">
                     <span class="card-category">Must See</span>
@@ -616,8 +645,10 @@
                     <div class="card-rating">★★★★★</div>
                     <p class="card-description">A doua clădire administrativă ca mărime din lume, monument al epocii comuniste.</p>
                 </div>
+                </a>
             </article>
             <article class="card" data-category="must-see">
+                <a href="https://www.google.com/maps/search/?api=1&query=Lipscani+Bucure%C8%99ti" target="_blank" class="card-link">
                 <img class="card-image" src="https://images.unsplash.com/photo-1583067834263-3ef23b1a6d4f?w=600&q=80" alt="Centrul Vechi">
                 <div class="card-content">
                     <span class="card-category">Must See</span>
@@ -625,13 +656,14 @@
                     <div class="card-rating">★★★★<span class="empty">★</span></div>
                     <p class="card-description">Inima vibrantă a orașului cu străduțe istorice, terase, cluburi și arhitectură Belle Époque.</p>
                 </div>
+                </a>
             </article>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>Copyright © 2026 GhiDoRo <span class="heart">❤️</span> Descoperă București</p>
+        <p>Copyright 2026 GhiDoRo - Descoper&#259; Bucure&#351;ti</p>
     </footer>
 
     <!-- ============================================
