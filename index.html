@@ -8,17 +8,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ============================================
+           CSS VARIABLES — Design Tokens
+           Culori și valori reutilizabile în tot codul
+           ============================================ */
         :root {
-            --bg-dark: #0a0a0f;
-            --bg-gradient: #1a1a2e;
-            --accent-cyan: #00f5ff;
-            --accent-purple: #a855f7;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0c0;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            /* Background */
+            --bg-dark: #0a0a0f;           /* Fundal principal dark */
+            --bg-gradient: #1a1a2e;       /* Gradient secundar */
+
+            /* Accent colors */
+            --accent-cyan: #00f5ff;       /* Cyan neon — efect glow/hover */
+            --accent-purple: #a855f7;    /* Purple — gradiente și highlights */
+
+            /* Text */
+            --text-primary: #ffffff;      /* Text principal */
+            --text-secondary: #b0b0c0;    /* Text secundar, descrieri */
+
+            /* Glassmorphism effects */
+            --glass-bg: rgba(255, 255, 255, 0.05);      /* Fundal semi-transparent */
+            --glass-border: rgba(255, 255, 255, 0.1);   /* Border subtil */
         }
 
+        /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
@@ -33,7 +45,12 @@
             overflow-x: hidden;
         }
 
-        /* Header */
+        /* ============================================
+           HEADER — Navigation Bar
+           - Fixed position, blur backdrop
+           - Logo cu gradient și glassmorphism
+           - Link-uri nav cu hover effects
+           ============================================ */
         .header {
             position: fixed;
             top: 0;
@@ -42,7 +59,7 @@
             z-index: 100;
             padding: 1rem 2rem;
             background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);          /* Efect blur fundal */
             border-bottom: 1px solid var(--glass-border);
         }
 
@@ -82,12 +99,18 @@
             text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
         }
 
-        /* Hero Carousel */
+        /* ============================================
+           HERO CAROUSEL
+           - Full viewport height (100vh)
+           - Slide-uri absolute positioned
+           - Fade transition între slide-uri (1s)
+           - Overlay gradient pentru citibilitate text
+           ============================================ */
         .hero {
             position: relative;
             height: 100vh;
             overflow: hidden;
-            margin-top: 60px;
+            margin-top: 60px;              /* Spațiu pentru header fixed */
         }
 
         .carousel {
@@ -102,12 +125,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            opacity: 0;                    /* Ascunse implicit */
+            transition: opacity 1s ease-in-out;  /* Fade transition */
         }
 
         .carousel-slide.active {
-            opacity: 1;
+            opacity: 1;                   /* Vizibilă când are clasa active */
         }
 
         .carousel-slide img {
@@ -122,6 +145,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            /* Gradient de la transparent la dark pentru contrast text */
             background: linear-gradient(180deg, rgba(10,10,15,0.4) 0%, rgba(10,10,15,0.8) 100%);
         }
 
@@ -151,6 +175,7 @@
             max-width: 600px;
         }
 
+        /* Dot indicators — interactive navigation */
         .carousel-dots {
             position: absolute;
             bottom: 5%;
@@ -172,10 +197,15 @@
 
         .carousel-dot.active {
             background: var(--accent-cyan);
-            box-shadow: 0 0 20px var(--accent-cyan);
+            box-shadow: 0 0 20px var(--accent-cyan);   /* Glow effect */
         }
 
-        /* Categories Section */
+        /* ============================================
+           CATEGORIES SECTION — Category Buttons
+           - Butoane cu glassmorphism styling
+           - Hover: glow effect + translateY
+           - Icon emoji + label text
+           ============================================ */
         .categories {
             padding: 5rem 2rem;
             max-width: 1400px;
@@ -215,6 +245,7 @@
             backdrop-filter: blur(10px);
         }
 
+        /* Hover effect: cyan glow + lift up */
         .category-btn:hover {
             background: rgba(0, 245, 255, 0.1);
             border-color: var(--accent-cyan);
@@ -232,7 +263,13 @@
             color: var(--text-primary);
         }
 
-        /* Cards Grid */
+        /* ============================================
+           CARDS SECTION — Location Cards Grid
+           - CSS Grid responsive (auto-fit)
+           - Glassmorphism card styling
+           - Hover: lift + cyan border glow
+           - Include: image, category, title, rating, description
+           ============================================ */
         .cards-section {
             padding: 2rem;
             max-width: 1400px;
@@ -254,6 +291,7 @@
             transition: all 0.3s ease;
         }
 
+        /* Hover: lift + shadow glow */
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 60px rgba(0, 245, 255, 0.2);
@@ -300,7 +338,9 @@
             line-height: 1.6;
         }
 
-        /* Footer */
+        /* ============================================
+           FOOTER — Simple footer cu heart emoji
+           ============================================ */
         .footer {
             margin-top: 5rem;
             padding: 3rem 2rem;
@@ -318,7 +358,9 @@
             color: var(--accent-purple);
         }
 
-        /* Responsive */
+        /* ============================================
+           RESPONSIVE — Mobile adaptations
+           ============================================ */
         @media (max-width: 768px) {
             .carousel-content h1 {
                 font-size: 2.5rem;
@@ -339,7 +381,10 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- ============================================
+         HEADER — Fixed navigation bar
+         Logo + nav links (Acasă, Categorii, Locații)
+         ============================================ -->
     <header class="header">
         <div class="header-content">
             <div class="logo">GhiDoRo</div>
@@ -353,7 +398,14 @@
         </div>
     </header>
 
-    <!-- Hero Carousel -->
+    <!-- ============================================
+         HERO CAROUSEL
+         - 5 slide-uri cu imagini din București
+         - Auto-play la 4 secunde (setInterval)
+         - Fade transition 1s între slide-uri
+         - Dot indicators interactive (clickable)
+         - Overlay gradient pentru citibilitate
+         ============================================ -->
     <section class="hero" id="acasa">
         <div class="carousel">
             <div class="carousel-slide active">
@@ -390,7 +442,12 @@
         </div>
     </section>
 
-    <!-- Categories -->
+    <!-- ============================================
+         CATEGORIES — Category filter buttons
+         - 5 categorii: EAT, DRINK, STAY, VISIT, MUST SEE
+         - Click = filter cards by category
+         - Double-click = reset filter (show all)
+         ============================================ -->
     <section class="categories" id="categorii">
         <h2 class="section-title">Explorează după categorie</h2>
         <div class="category-buttons">
@@ -417,7 +474,12 @@
         </div>
     </section>
 
-    <!-- Cards -->
+    <!-- ============================================
+         CARDS GRID — Location cards
+         - 15 cards: 3 per category (eat, drink, stay, visit, must-see)
+         - data-category attribute used for filtering
+         - Each card: image, category badge, title, rating stars, description
+         ============================================ -->
     <section class="cards-section" id="locatii">
         <div class="cards-grid" id="cards-container">
             <!-- EAT Cards -->
@@ -572,13 +634,22 @@
         <p>Copyright © 2026 GhiDoRo <span class="heart">❤️</span> Descoperă București</p>
     </footer>
 
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
     <script>
-        // Carousel functionality
+        /* ============================================
+           CAROUSEL — Auto-play + dot navigation
+           - Interval: 4000ms (4 secunde)
+           - Fade transition: 1s (CSS)
+           - Dot click: reset auto-play timer
+           ============================================ */
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.carousel-dot');
         let currentSlide = 0;
         let autoPlayInterval;
 
+        // Afișează slide-ul cu index-ul dat
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
@@ -588,20 +659,23 @@
             currentSlide = index;
         }
 
+        // Trece la slide-ul următor (loop circular)
         function nextSlide() {
             const next = (currentSlide + 1) % slides.length;
             showSlide(next);
         }
 
+        // Pornește auto-play-ul
         function startAutoPlay() {
             autoPlayInterval = setInterval(nextSlide, 4000);
         }
 
+        // Oprește auto-play-ul (la click pe dot)
         function stopAutoPlay() {
             clearInterval(autoPlayInterval);
         }
 
-        // Dot click handlers
+        // Click handler pentru dot indicators
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
                 stopAutoPlay();
@@ -610,10 +684,15 @@
             });
         });
 
-        // Start carousel
+        // Pornește carousel-ul la încărcarea paginii
         startAutoPlay();
 
-        // Category filter functionality
+        /* ============================================
+           CATEGORY FILTER — Filtrare carduri pe categorii
+           - Click pe buton categorie: arată doar cardurile din acea categorie
+           - Double-click: reset (arată toate cardurile)
+           - Animație fade in/out la filtrare
+           ============================================ */
         const categoryBtns = document.querySelectorAll('.category-btn');
         const cards = document.querySelectorAll('.card');
 
@@ -621,22 +700,24 @@
             btn.addEventListener('click', () => {
                 const category = btn.dataset.category;
                 
+                // Scade opacitatea butoanelor inactive
                 categoryBtns.forEach(b => b.style.opacity = '0.5');
                 btn.style.opacity = '1';
                 
+                // Filtrare carduri
                 cards.forEach(card => {
                     if (card.dataset.category === category) {
                         card.style.display = 'block';
-                        setTimeout(() => card.style.opacity = '1', 10);
+                        setTimeout(() => card.style.opacity = '1', 10);  // Fade in
                     } else {
                         card.style.opacity = '0';
-                        setTimeout(() => card.style.display = 'none', 300);
+                        setTimeout(() => card.style.display = 'none', 300);  // Delay hide
                     }
                 });
             });
         });
 
-        // Reset filter on double click
+        // Double-click: reset filter (arată toate cardurile)
         categoryBtns.forEach(btn => {
             btn.addEventListener('dblclick', () => {
                 categoryBtns.forEach(b => b.style.opacity = '1');
