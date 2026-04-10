@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhiDoRo — Ghid București</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-gradient: #1a1a2e;
+            --accent-cyan: #00f5ff;
+            --accent-purple: #a855f7;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0c0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-gradient) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+        }
+
+        /* Hero Carousel */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(10,10,15,0.4) 0%, rgba(10,10,15,0.8) 100%);
+        }
+
+        .carousel-content {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .carousel-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 60px rgba(0, 245, 255, 0.4);
+        }
+
+        .carousel-content p {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent-cyan);
+            box-shadow: 0 0 20px var(--accent-cyan);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.5rem 2.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-btn:hover {
+            background: rgba(0, 245, 255, 0.1);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .category-btn .icon {
+            font-size: 2.5rem;
+        }
+
+        .category-btn .label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Cards Grid */
+        .cards-section {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 245, 255, 0.2);
+            border-color: var(--accent-cyan);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-rating {
+            color: #fbbf24;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-rating .empty {
+            color: var(--text-secondary);
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            background: rgba(10, 10, 15, 0.9);
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .footer .heart {
+            color: var(--accent-purple);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .carousel-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .category-buttons {
+                gap: 1rem;
+            }
+
+            .category-btn {
+                padding: 1rem 1.5rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">GhiDoRo</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#acasa">Acasă</a></li>
+                    <li><a href="#categorii">Categorii</a></li>
+                    <li><a href="#locatii">Locații</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="hero" id="acasa">
+        <div class="carousel">
+            <div class="carousel-slide active">
+                <img src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?w=1920&q=80" alt="Romanian Athenaeum">
+                <div class="carousel-overlay"></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=1920&q=80" alt="Palace of Parliament">
+                <div class="carousel-overlay"></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1583067834263-3ef23b1a6d4f?w=1920&q=80" alt="Old Town Lipscani">
+                <div class="carousel-overlay"></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1548407260-da850faa41e3?w=1920&q=80" alt="Stavropoleos Church">
+                <div class="carousel-overlay"></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1920&q=80" alt="Herăstrău Park">
+                <div class="carousel-overlay"></div>
+            </div>
+        </div>
+        <div class="carousel-content">
+            <h1>Descoperă București</h1>
+            <p>Ghidul tău complet pentru cele mai frumoase locuri din capitala României</p>
+        </div>
+        <div class="carousel-dots">
+            <span class="carousel-dot active" data-index="0"></span>
+            <span class="carousel-dot" data-index="1"></span>
+            <span class="carousel-dot" data-index="2"></span>
+            <span class="carousel-dot" data-index="3"></span>
+            <span class="carousel-dot" data-index="4"></span>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categorii">
+        <h2 class="section-title">Explorează după categorie</h2>
+        <div class="category-buttons">
+            <button class="category-btn" data-category="eat">
+                <span class="icon">🍽️</span>
+                <span class="label">EAT</span>
+            </button>
+            <button class="category-btn" data-category="drink">
+                <span class="icon">🥂</span>
+                <span class="label">DRINK</span>
+            </button>
+            <button class="category-btn" data-category="stay">
+                <span class="icon">🏨</span>
+                <span class="label">STAY</span>
+            </button>
+            <button class="category-btn" data-category="visit">
+                <span class="icon">🏛️</span>
+                <span class="label">VISIT</span>
+            </button>
+            <button class="category-btn" data-category="must-see">
+                <span class="icon">⭐</span>
+                <span class="label">MUST SEE</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="cards-section" id="locatii">
+        <div class="cards-grid" id="cards-container">
+            <!-- EAT Cards -->
+            <article class="card" data-category="eat">
+                <img class="card-image" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Caru' cu Bere">
+                <div class="card-content">
+                    <span class="card-category">Eat</span>
+                    <h3 class="card-title">Caru' cu Bere</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Legendarul restaurant bucureștean din 1879, cu arhitectură neo-românească și preparate tradiționale autentice.</p>
+                </div>
+            </article>
+            <article class="card" data-category="eat">
+                <img class="card-image" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80" alt="Luca Epicericul">
+                <div class="card-content">
+                    <span class="card-category">Eat</span>
+                    <h3 class="card-title">Luca Epicericul</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Bistro franțuzesc elegant în centrul vechi, cu meniu rafinat și vinotecă impresionantă.</p>
+                </div>
+            </article>
+            <article class="card" data-category="eat">
+                <img class="card-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Micul Bucătar">
+                <div class="card-content">
+                    <span class="card-category">Eat</span>
+                    <h3 class="card-title">Micul Bucătar</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Restaurant tradițional românesc cu preparate din toate regiunile țării, într-un ambient cozy.</p>
+                </div>
+            </article>
+
+            <!-- DRINK Cards -->
+            <article class="card" data-category="drink">
+                <img class="card-image" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80" alt="The Spring">
+                <div class="card-content">
+                    <span class="card-category">Drink</span>
+                    <h3 class="card-title">The Spring</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Cocktail bar award-winning în clădire istorică, cu mixologi creativi și atmosferă sofisticată.</p>
+                </div>
+            </article>
+            <article class="card" data-category="drink">
+                <img class="card-image" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80" alt="Nomad Skybar">
+                <div class="card-content">
+                    <span class="card-category">Drink</span>
+                    <h3 class="card-title">Nomad Skybar</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Skybar cu vedere panoramică asupra Bucureștiului, perfect pentru apusuri memorabile.</p>
+                </div>
+            </article>
+            <article class="card" data-category="drink">
+                <img class="card-image" src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=600&q=80" alt="Control Club">
+                <div class="card-content">
+                    <span class="card-category">Drink</span>
+                    <h3 class="card-title">Control Club</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Legendara locație pentru muzică live și evenimente, simbol al scenei alternative bucureștene.</p>
+                </div>
+            </article>
+
+            <!-- STAY Cards -->
+            <article class="card" data-category="stay">
+                <img class="card-image" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Hotel Chopin">
+                <div class="card-content">
+                    <span class="card-category">Stay</span>
+                    <h3 class="card-title">Hotel Chopin</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Boutique hotel elegant într-o clădire de epocă, cu camere luxoase și servicii premium.</p>
+                </div>
+            </article>
+            <article class="card" data-category="stay">
+                <img class="card-image" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80" alt="The Ark">
+                <div class="card-content">
+                    <span class="card-category">Stay</span>
+                    <h3 class="card-title">The Ark</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Hotel de design în zona Herăstrău, cu arhitectură modernă și grădină verde liniștitoare.</p>
+                </div>
+            </article>
+            <article class="card" data-category="stay">
+                <img class="card-image" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Villa Heliapart">
+                <div class="card-content">
+                    <span class="card-category">Stay</span>
+                    <h3 class="card-title">Villa Heliapart</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Pensiune intimă în cartierul Cotroceni, cu atmosferă familială și grădină secretă.</p>
+                </div>
+            </article>
+
+            <!-- VISIT Cards -->
+            <article class="card" data-category="visit">
+                <img class="card-image" src="https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600&q=80" alt="Muzeul Național de Artă">
+                <div class="card-content">
+                    <span class="card-category">Visit</span>
+                    <h3 class="card-title">Muzeul Național de Artă</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Colecții de artă medievală și modernă românească, în fosta reședință regală.</p>
+                </div>
+            </article>
+            <article class="card" data-category="visit">
+                <img class="card-image" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Muzeul Satului">
+                <div class="card-content">
+                    <span class="card-category">Visit</span>
+                    <h3 class="card-title">Muzeul Național al Satului</h3>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-description">Sate tradiționale din toate regiunile României, cu arhitectură autentică și ateliere meșteșugărești.</p>
+                </div>
+            </article>
+            <article class="card" data-category="visit">
+                <img class="card-image" src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80" alt="Muzeul de Istorie">
+                <div class="card-content">
+                    <span class="card-category">Visit</span>
+                    <h3 class="card-title">Muzeul Național de Istorie</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Tezaurul Coroanei Române și artefacte istorice de la daci până în prezent.</p>
+                </div>
+            </article>
+
+            <!-- MUST SEE Cards -->
+            <article class="card" data-category="must-see">
+                <img class="card-image" src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?w=600&q=80" alt="Ateneul Român">
+                <div class="card-content">
+                    <span class="card-category">Must See</span>
+                    <h3 class="card-title">Ateneul Român</h3>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-description">Simbolul cultural al Bucureștiului, cu sala deconcert în formă de corn și cupola murală spectaculoasă.</p>
+                </div>
+            </article>
+            <article class="card" data-category="must-see">
+                <img class="card-image" src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&q=80" alt="Palatul Parlamentului">
+                <div class="card-content">
+                    <span class="card-category">Must See</span>
+                    <h3 class="card-title">Palatul Parlamentului</h3>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-description">A doua clădire administrativă ca mărime din lume, monument al epocii comuniste.</p>
+                </div>
+            </article>
+            <article class="card" data-category="must-see">
+                <img class="card-image" src="https://images.unsplash.com/photo-1583067834263-3ef23b1a6d4f?w=600&q=80" alt="Centrul Vechi">
+                <div class="card-content">
+                    <span class="card-category">Must See</span>
+                    <h3 class="card-title">Centrul Vechi - Lipscani</h3>
+                    <div class="card-rating">★★★★<span class="empty">★</span></div>
+                    <p class="card-description">Inima vibrantă a orașului cu străduțe istorice, terase, cluburi și arhitectură Belle Époque.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Copyright © 2026 GhiDoRo <span class="heart">❤️</span> Descoperă București</p>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        let autoPlayInterval;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 4000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Dot click handlers
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                stopAutoPlay();
+                showSlide(parseInt(dot.dataset.index));
+                startAutoPlay();
+            });
+        });
+
+        // Start carousel
+        startAutoPlay();
+
+        // Category filter functionality
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const cards = document.querySelectorAll('.card');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                
+                categoryBtns.forEach(b => b.style.opacity = '0.5');
+                btn.style.opacity = '1';
+                
+                cards.forEach(card => {
+                    if (card.dataset.category === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 10);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+
+        // Reset filter on double click
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('dblclick', () => {
+                categoryBtns.forEach(b => b.style.opacity = '1');
+                cards.forEach(card => {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
