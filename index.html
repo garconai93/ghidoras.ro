@@ -289,13 +289,12 @@
             overflow: hidden;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            position: relative;
         }
 
-        /* Hover: lift + shadow glow */
+        /* Default hover: lift + shadow glow */
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 245, 255, 0.2);
-            border-color: var(--accent-cyan);
         }
 
         .card-link {
@@ -308,6 +307,7 @@
             width: 100%;
             height: 220px;
             object-fit: cover;
+            display: block;
         }
 
         .card-content {
@@ -342,6 +342,199 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        /* ============================================
+           CATEGORY BADGE — Icon in colțul din dreapta sus
+           ============================================ */
+        .card-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-badge {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* ============================================
+           CATEGORY: EAT — Roșu/Portocaliu
+           Border accent portocaliu, glow portocaliu, 🍽️ icon
+           ============================================ */
+        .card[data-category="eat"] {
+            border-color: rgba(255, 152, 66, 0.3);
+        }
+
+        .card[data-category="eat"] .card-badge {
+            background: linear-gradient(135deg, rgba(255, 152, 66, 0.9), rgba(239, 68, 68, 0.9));
+            box-shadow: 0 4px 20px rgba(255, 152, 66, 0.4);
+        }
+
+        .card[data-category="eat"]:hover {
+            border-color: rgba(255, 152, 66, 0.7);
+            box-shadow: 0 20px 60px rgba(255, 152, 66, 0.3), 0 0 40px rgba(255, 152, 66, 0.15);
+        }
+
+        .card[data-category="eat"] .card-category {
+            color: #ff9842;
+        }
+
+        /* Gradient subtle pe card-image la eat */
+        .card[data-category="eat"] .card-image {
+            position: relative;
+        }
+
+        .card[data-category="eat"] .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(180deg, rgba(255, 152, 66, 0.15) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* ============================================
+           CATEGORY: DRINK — Albastru/Viole
+           Border accent violet, glow cyan/violet, 🍸 icon
+           ============================================ */
+        .card[data-category="drink"] {
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .card[data-category="drink"] .card-badge {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.9), rgba(59, 130, 246, 0.9));
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .card[data-category="drink"]:hover {
+            border-color: rgba(168, 85, 247, 0.7);
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.3), 0 0 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .card[data-category="drink"] .card-category {
+            color: #a855f7;
+        }
+
+        .card[data-category="drink"] .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(180deg, rgba(168, 85, 247, 0.15) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* ============================================
+           CATEGORY: STAY — Verde
+           Border accent verde, glow verde, 🏨 icon
+           ============================================ */
+        .card[data-category="stay"] {
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .card[data-category="stay"] .card-badge {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.9), rgba(16, 185, 129, 0.9));
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+        }
+
+        .card[data-category="stay"]:hover {
+            border-color: rgba(34, 197, 94, 0.7);
+            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.3), 0 0 40px rgba(16, 185, 129, 0.15);
+        }
+
+        .card[data-category="stay"] .card-category {
+            color: #22c55e;
+        }
+
+        .card[data-category="stay"] .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(180deg, rgba(34, 197, 94, 0.15) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* ============================================
+           CATEGORY: VISIT — Albastru regal
+           Border accent albastru regal, glow albastru, 🏛️ icon
+           ============================================ */
+        .card[data-category="visit"] {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .card[data-category="visit"] .card-badge {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(99, 102, 241, 0.9));
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .card[data-category="visit"]:hover {
+            border-color: rgba(59, 130, 246, 0.7);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3), 0 0 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .card[data-category="visit"] .card-category {
+            color: #3b82f6;
+        }
+
+        .card[data-category="visit"] .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.15) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* ============================================
+           CATEGORY: MUST SEE — Auriu
+           Border accent auriu, glow auriu, ⭐ icon
+           ============================================ */
+        .card[data-category="must-see"] {
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .card[data-category="must-see"] .card-badge {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.9), rgba(245, 158, 11, 0.9));
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+        }
+
+        .card[data-category="must-see"]:hover {
+            border-color: rgba(251, 191, 36, 0.7);
+            box-shadow: 0 20px 60px rgba(251, 191, 36, 0.3), 0 0 40px rgba(245, 158, 11, 0.15);
+        }
+
+        .card[data-category="must-see"] .card-category {
+            color: #fbbf24;
+        }
+
+        .card[data-category="must-see"] .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(180deg, rgba(251, 191, 36, 0.15) 0%, transparent 100%);
+            pointer-events: none;
         }
 
         /* ============================================
@@ -487,6 +680,7 @@
             <!-- EAT Cards -->
             <article class="card" data-category="eat">
                 <a href="https://www.google.com/maps/search/?api=1&query=Caru+cu+Bere+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🍽️</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Caru' cu Bere">
                 <div class="card-content">
                     <span class="card-category">Eat</span>
@@ -498,6 +692,7 @@
             </article>
             <article class="card" data-category="eat">
                 <a href="https://www.google.com/maps/search/?api=1&query=Luca+Epicericul+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🍽️</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80" alt="Luca Epicericul">
                 <div class="card-content">
                     <span class="card-category">Eat</span>
@@ -509,6 +704,7 @@
             </article>
             <article class="card" data-category="eat">
                 <a href="https://www.google.com/maps/search/?api=1&query=Micul+Bucatar+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🍽️</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Micul Bucătar">
                 <div class="card-content">
                     <span class="card-category">Eat</span>
@@ -522,6 +718,7 @@
             <!-- DRINK Cards -->
             <article class="card" data-category="drink">
                 <a href="https://www.google.com/maps/search/?api=1&query=The+Spring+cocktail+bar+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🍸</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80" alt="The Spring">
                 <div class="card-content">
                     <span class="card-category">Drink</span>
@@ -533,6 +730,7 @@
             </article>
             <article class="card" data-category="drink">
                 <a href="https://www.google.com/maps/search/?api=1&query=Nomad+Skybar+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🍸</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80" alt="Nomad Skybar">
                 <div class="card-content">
                     <span class="card-category">Drink</span>
@@ -544,6 +742,7 @@
             </article>
             <article class="card" data-category="drink">
                 <a href="https://www.google.com/maps/search/?api=1&query=Control+Club+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🍸</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=600&q=80" alt="Control Club">
                 <div class="card-content">
                     <span class="card-category">Drink</span>
@@ -557,6 +756,7 @@
             <!-- STAY Cards -->
             <article class="card" data-category="stay">
                 <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Chopin+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🏨</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Hotel Chopin">
                 <div class="card-content">
                     <span class="card-category">Stay</span>
@@ -568,6 +768,7 @@
             </article>
             <article class="card" data-category="stay">
                 <a href="https://www.google.com/maps/search/?api=1&query=The+Ark+Hotel+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🏨</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80" alt="The Ark">
                 <div class="card-content">
                     <span class="card-category">Stay</span>
@@ -579,6 +780,7 @@
             </article>
             <article class="card" data-category="stay">
                 <a href="https://www.google.com/maps/search/?api=1&query=Villa+Heliapart+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🏨</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Villa Heliapart">
                 <div class="card-content">
                     <span class="card-category">Stay</span>
@@ -592,6 +794,7 @@
             <!-- VISIT Cards -->
             <article class="card" data-category="visit">
                 <a href="https://www.google.com/maps/search/?api=1&query=Muzeul+Na%C8%9Bional+de+Art%C4%83+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🏛️</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600&q=80" alt="Muzeul Național de Artă">
                 <div class="card-content">
                     <span class="card-category">Visit</span>
@@ -603,6 +806,7 @@
             </article>
             <article class="card" data-category="visit">
                 <a href="https://www.google.com/maps/search/?api=1&query=Muzeul+Na%C8%9Bional+al+Satului+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🏛️</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Muzeul Satului">
                 <div class="card-content">
                     <span class="card-category">Visit</span>
@@ -614,6 +818,7 @@
             </article>
             <article class="card" data-category="visit">
                 <a href="https://www.google.com/maps/search/?api=1&query=Muzeul+Na%C8%9Bional+de+Istorie+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">🏛️</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80" alt="Muzeul de Istorie">
                 <div class="card-content">
                     <span class="card-category">Visit</span>
@@ -627,6 +832,7 @@
             <!-- MUST SEE Cards -->
             <article class="card" data-category="must-see">
                 <a href="https://www.google.com/maps/search/?api=1&query=Ateneul+Rom%C3%A2n+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">⭐</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1549877452-9c387954fbc2?w=600&q=80" alt="Ateneul Român">
                 <div class="card-content">
                     <span class="card-category">Must See</span>
@@ -638,6 +844,7 @@
             </article>
             <article class="card" data-category="must-see">
                 <a href="https://www.google.com/maps/search/?api=1&query=Palatul+Parlamentului+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">⭐</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&q=80" alt="Palatul Parlamentului">
                 <div class="card-content">
                     <span class="card-category">Must See</span>
@@ -649,6 +856,7 @@
             </article>
             <article class="card" data-category="must-see">
                 <a href="https://www.google.com/maps/search/?api=1&query=Lipscani+Bucure%C8%99ti" target="_blank" class="card-link">
+                <div class="card-badge">⭐</div>
                 <img class="card-image" src="https://images.unsplash.com/photo-1583067834263-3ef23b1a6d4f?w=600&q=80" alt="Centrul Vechi">
                 <div class="card-content">
                     <span class="card-category">Must See</span>
