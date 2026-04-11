@@ -21,6 +21,31 @@
             --accent-cyan: #00f5ff;       /* Cyan neon — efect glow/hover */
             --accent-purple: #a855f7;    /* Purple — gradiente și highlights */
 
+            /* Category: EAT — Portocaliu/Roșu */
+            --eat-primary: #ff9842;
+            --eat-secondary: #ef4444;
+            --eat-glow: rgba(255, 152, 66, 0.4);
+
+            /* Category: DRINK — Violet/Cyan */
+            --drink-primary: #a855f7;
+            --drink-secondary: #06b6d4;
+            --drink-glow: rgba(168, 85, 247, 0.4);
+
+            /* Category: STAY — Verde */
+            --stay-primary: #22c55e;
+            --stay-secondary: #10b981;
+            --stay-glow: rgba(34, 197, 94, 0.4);
+
+            /* Category: VISIT — Albastru regal */
+            --visit-primary: #3b82f6;
+            --visit-secondary: #6366f1;
+            --visit-glow: rgba(59, 130, 246, 0.4);
+
+            /* Category: MUST SEE — Auriu/Galben */
+            --mustsee-primary: #fbbf24;
+            --mustsee-secondary: #f59e0b;
+            --mustsee-glow: rgba(251, 191, 36, 0.4);
+
             /* Text */
             --text-primary: #ffffff;      /* Text principal */
             --text-secondary: #b0b0c0;    /* Text secundar, descrieri */
@@ -245,14 +270,6 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Hover effect: cyan glow + lift up */
-        .category-btn:hover {
-            background: rgba(0, 245, 255, 0.1);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
         .category-btn .icon {
             font-size: 2.5rem;
         }
@@ -261,6 +278,106 @@
             font-size: 1rem;
             font-weight: 600;
             color: var(--text-primary);
+        }
+
+        /* ============================================
+           CATEGORY BUTTON: EAT — Portocaliu/Roșu
+           Gradient fundal, border portocaliu, hover glow portocaliu + lift
+           ============================================ */
+        .category-btn[data-category="eat"] {
+            background: linear-gradient(135deg, rgba(255, 152, 66, 0.15), rgba(239, 68, 68, 0.15));
+            border: 2px solid var(--eat-primary);
+        }
+
+        .category-btn[data-category="eat"]:hover {
+            background: linear-gradient(135deg, rgba(255, 152, 66, 0.25), rgba(239, 68, 68, 0.25));
+            border-color: var(--eat-primary);
+            box-shadow: 0 0 30px var(--eat-glow), 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .category-btn[data-category="eat"] .icon {
+            font-size: 3rem;
+        }
+
+        /* ============================================
+           CATEGORY BUTTON: DRINK — Violet/Cyan
+           Gradient fundal, border violet, hover glow violet + lift
+           ============================================ */
+        .category-btn[data-category="drink"] {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(6, 182, 212, 0.15));
+            border: 2px solid var(--drink-primary);
+        }
+
+        .category-btn[data-category="drink"]:hover {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(6, 182, 212, 0.25));
+            border-color: var(--drink-primary);
+            box-shadow: 0 0 30px var(--drink-glow), 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .category-btn[data-category="drink"] .icon {
+            font-size: 3rem;
+        }
+
+        /* ============================================
+           CATEGORY BUTTON: STAY — Verde
+           Gradient fundal, border verde, hover glow verde + lift
+           ============================================ */
+        .category-btn[data-category="stay"] {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.15));
+            border: 2px solid var(--stay-primary);
+        }
+
+        .category-btn[data-category="stay"]:hover {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(16, 185, 129, 0.25));
+            border-color: var(--stay-primary);
+            box-shadow: 0 0 30px var(--stay-glow), 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .category-btn[data-category="stay"] .icon {
+            font-size: 3rem;
+        }
+
+        /* ============================================
+           CATEGORY BUTTON: VISIT — Albastru regal
+           Gradient fundal, border albastru, hover glow albastru + lift
+           ============================================ */
+        .category-btn[data-category="visit"] {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.15));
+            border: 2px solid var(--visit-primary);
+        }
+
+        .category-btn[data-category="visit"]:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(99, 102, 241, 0.25));
+            border-color: var(--visit-primary);
+            box-shadow: 0 0 30px var(--visit-glow), 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .category-btn[data-category="visit"] .icon {
+            font-size: 3rem;
+        }
+
+        /* ============================================
+           CATEGORY BUTTON: MUST SEE — Auriu/Galben
+           Gradient fundal, border auriu, hover glow auriu + lift
+           ============================================ */
+        .category-btn[data-category="must-see"] {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.15));
+            border: 2px solid var(--mustsee-primary);
+        }
+
+        .category-btn[data-category="must-see"]:hover {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.25), rgba(245, 158, 11, 0.25));
+            border-color: var(--mustsee-primary);
+            box-shadow: 0 0 30px var(--mustsee-glow), 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .category-btn[data-category="must-see"] .icon {
+            font-size: 3rem;
         }
 
         /* ============================================
@@ -647,23 +764,23 @@
         <h2 class="section-title">Explorează după categorie</h2>
         <div class="category-buttons">
             <button class="category-btn" data-category="eat">
-                <span class="icon">EAT</span>
+                <span class="icon">🍽️</span>
                 <span class="label">EAT</span>
             </button>
             <button class="category-btn" data-category="drink">
-                <span class="icon">DRINK</span>
+                <span class="icon">🍸</span>
                 <span class="label">DRINK</span>
             </button>
             <button class="category-btn" data-category="stay">
-                <span class="icon">STAY</span>
+                <span class="icon">🏨</span>
                 <span class="label">STAY</span>
             </button>
             <button class="category-btn" data-category="visit">
-                <span class="icon">VISIT</span>
+                <span class="icon">🏛️</span>
                 <span class="label">VISIT</span>
             </button>
             <button class="category-btn" data-category="must-see">
-                <span class="icon">MUST SEE</span>
+                <span class="icon">⭐</span>
                 <span class="label">MUST SEE</span>
             </button>
         </div>
